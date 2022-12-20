@@ -2,6 +2,10 @@ package fr.negosud.api.model;
 
 import jakarta.persistence.*;
 
+// generate getteurs & setteurs
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -9,26 +13,15 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private int idCustomer;
 
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
 
+    @Column(name = "last_name")
+    private  String lastName;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Column(name = "mail")
+    private  String mailCustomer;
 
 }
