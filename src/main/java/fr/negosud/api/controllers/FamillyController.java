@@ -16,7 +16,7 @@ public class FamillyController {
 
     @GetMapping("/familles")
     public Iterable<Familly> getFamilly() {
-        return famillyService.getFamilly();
+        return famillyService.getFamillys();
     }
 
     @GetMapping("/familles/{id}")

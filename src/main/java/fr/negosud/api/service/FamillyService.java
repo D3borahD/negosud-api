@@ -15,7 +15,7 @@ public class FamillyService {
     @Autowired
     private FamillyRepository famillyRepository;
 
-    public Iterable<Familly> getFamilly() {
+    public Iterable<Familly> getFamillys() {
         return famillyRepository.findAll();
     }
 
