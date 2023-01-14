@@ -15,12 +15,12 @@ public class CustomerController {
     private CustomerService customerService;
 
 
-    @GetMapping("/client")
+    @GetMapping("/clients")
     public Iterable<Customer> getCustomers() {
         return customerService.getCustomers();
     }
 
-    @GetMapping("/client/{id}")
+    @GetMapping("/clients/{id}")
     public Customer getCustomer(@PathVariable("id") final Integer id) {
         Optional<Customer> customer = customerService.getCustomer(id);
         if(customer.isPresent()){
@@ -30,12 +30,12 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/client")
+    @PostMapping("/clients")
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
     }
 
-    @PutMapping("client/{id}")
+    @PutMapping("clients/{id}")
     public Customer updateCustomer(@PathVariable("id") final Integer id, @RequestBody Customer customer){
         Optional<Customer> c = customerService.getCustomer(id);
         if(c.isPresent()){
@@ -60,7 +60,7 @@ public class CustomerController {
         }
     }
 
-    @DeleteMapping("customer/{id}")
+    @DeleteMapping("customers/{id}")
     public void deleteCustomer(@PathVariable("id") final Integer id) {
         customerService.deleteCustomer(id);
     }
