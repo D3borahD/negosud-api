@@ -13,15 +13,17 @@ public class Address {
     @Column(name = "id")
     private int idAddress;
 
+    @Column(nullable=false, unique=true)
     private String type;
 
     private String number;
 
-    @Column(name = "street_name")
+    @Column(name = "street_name", nullable=false)
     private String streetName;
 
+    @Column(nullable=false)
     private int zip;
-
+    @Column(nullable=false)
     private String city;
 
     private String additional;

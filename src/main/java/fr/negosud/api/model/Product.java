@@ -10,11 +10,11 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int idProduct;
+    @Column(name = "idProduct")
+    private int id;
 
-    @Column(name = "name")
-    private String nameProduct;
+    @Column(name = "name", nullable=false, unique=true)
+    private String name;
 
     @Column(name = "unite_price")
     private float unitePrice;
@@ -26,8 +26,8 @@ public class Product {
 
     private int quantity;
 
-     @Column(name = "need_refill")
-    private int needRefill;
+    @Column(name = "need_refill")
+     private boolean needRefill;
 
     private String comment;
 

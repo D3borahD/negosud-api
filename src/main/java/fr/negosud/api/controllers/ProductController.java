@@ -40,10 +40,10 @@ public class ProductController {
         if(p.isPresent()){
             Product currentProduct = p.get();
 
-            String nameProduct = product.getNameProduct();
+           /* String nameProduct = product.getNameProduct();
             if(nameProduct != null){
                 currentProduct.setNameProduct(nameProduct);
-            }
+            }*/
             float unitePrice = product.getUnitePrice();
             if(unitePrice != 0.0f) {
                 currentProduct.setUnitePrice(unitePrice);
@@ -61,8 +61,8 @@ public class ProductController {
                 currentProduct.setQuantity(quantity);
             }
 
-            int needRefill = product.getNeedRefill();
-            if(needRefill != 0){
+            boolean needRefill = product.isNeedRefill();
+            if(needRefill != false){
                 currentProduct.setNeedRefill(needRefill);
             }
             String comment = product.getComment();
