@@ -13,7 +13,7 @@ public class Supplier {
     @Column(name = "id")
     private int idSupplier;
 
-    @Column(name = "name", nullable=false, unique=true)
+    @Column(name = "name", nullable=false)
     private String nameSupplier;
 
     @Column(name = "mail",  nullable=false, unique=true)
