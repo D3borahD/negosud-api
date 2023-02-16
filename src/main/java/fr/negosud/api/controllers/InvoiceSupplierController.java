@@ -40,14 +40,14 @@ public class InvoiceSupplierController {
         if(i.isPresent()){
             InvoiceSupplier currentInvoiceSupplier = i.get();
 
-            String statusInvoiceSupplier = invoiceSupplier.getStatus();
+           /* String statusInvoiceSupplier = invoiceSupplier.getStatus();
             if(statusInvoiceSupplier != null){
                 currentInvoiceSupplier.setStatus(statusInvoiceSupplier);
-            }
-            int idOrder = invoiceSupplier.getIdOrder();
+            }*/
+          /*  int idOrder = invoiceSupplier.getIdOrder();
             if(idOrder != 0){
                 currentInvoiceSupplier.setIdOrder(idOrder);
-            }
+            }*/
             invoiceSupplierService.saveInvoiceSupplier(currentInvoiceSupplier);
             return currentInvoiceSupplier;
         } else {

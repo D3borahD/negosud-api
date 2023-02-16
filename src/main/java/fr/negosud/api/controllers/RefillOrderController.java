@@ -41,15 +41,15 @@ public class RefillOrderController {
 
             float price = refillOrder.getPrice();
             if(price  != 0){
-                currentRefillOrder .setPrice(price);
+                currentRefillOrder.setPrice(price);
             }
-            String status = refillOrder.getStatus();
+          /*  String status = refillOrder.getStatus();
             if(status  != null){
-                currentRefillOrder .setStatus(status);
-            }
+                currentRefillOrder.setStatus(status);
+            }*/
             int idProduct = refillOrder.getIdProduct();
             if(idProduct  != 0){
-                currentRefillOrder .setIdProduct(idProduct);
+                currentRefillOrder.setIdProduct(idProduct);
             }
             refillOrderService.saveRefillOrder(currentRefillOrder);
             return currentRefillOrder;

@@ -39,14 +39,14 @@ public class InvoiceCustomerController {
         if(i.isPresent()){
             InvoiceCustomer currentInvoiceCustomer = i.get();
 
-            String statusInvoiceCustomer = invoiceCustomer.getStatus();
+            /*String statusInvoiceCustomer = invoiceCustomer.getStatus();
             if(statusInvoiceCustomer != null){
                 currentInvoiceCustomer.setStatus(statusInvoiceCustomer);
-            }
-            int idOrder = invoiceCustomer.getIdOrder();
+            }*/
+           /* int idOrder = invoiceCustomer.getIdOrder();
             if(idOrder != 0){
                 currentInvoiceCustomer.setIdOrder(idOrder);
-            }
+            }*/
             invoiceCustomerService.saveInvoiceCustomer(currentInvoiceCustomer);
             return currentInvoiceCustomer;
         } else {

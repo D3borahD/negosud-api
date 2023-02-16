@@ -23,22 +23,11 @@ public class Familly {
     @Column(name = "name", nullable=false)
     private String nameFamilly;
 
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(
-            name = "familly_house",
-            joinColumns = @JoinColumn(name = "familly_id", referencedColumnName = "id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "house_id", referencedColumnName = "id", nullable = false)
-    )
-    @JsonIgnore
-    private Set<House> houses = new HashSet<>();
-    //private List<House> houses = new ArrayList<>();
-
-
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "familly_id")
+    private Set<Product> products = new HashSet<>();
 
 }

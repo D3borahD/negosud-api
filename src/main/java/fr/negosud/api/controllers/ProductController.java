@@ -73,8 +73,8 @@ public class ProductController {
             if(cepage != null){
                 currentProduct.setCepage(cepage);
             }
-            int automaticReplenishmentTreshold = product.getAutomaticReplenishmentTreshold();
-            if (automaticReplenishmentTreshold != 0){
+            boolean automaticReplenishmentTreshold = product.isAutomaticReplenishmentTreshold();
+            if (automaticReplenishmentTreshold != false){
                 currentProduct.setAutomaticReplenishmentTreshold(automaticReplenishmentTreshold);
             }
             productService.saveProduct(currentProduct);

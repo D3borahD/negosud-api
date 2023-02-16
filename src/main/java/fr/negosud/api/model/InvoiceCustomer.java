@@ -13,11 +13,7 @@ public class InvoiceCustomer {
     @Column(name = "id")
     private int idInvoiceCustomer;
 
-   /* @Enumerated
-    private Status status;*/
-    private String status;
-
-    @Column(name = "id_order")
-    private int idOrder;
+   @Column(name = "is_paid")
+   private boolean isPaid;
 
 }

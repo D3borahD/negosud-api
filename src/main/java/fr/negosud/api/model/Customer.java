@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-// generate getteurs & setteurs
 import lombok.Data;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,8 +16,8 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCustomer")
-    private int id;
+    @Column(name = "id")
+    private int idCustomer;
 
     @Column(name = "first_name", nullable=false)
     private String firstName;
@@ -28,11 +29,41 @@ public class Customer {
     @Email
     private  String mailCustomer;
 
-   /* @Column(nullable=false)
+    @Column(nullable=false)
     @Size(min = 2, max = 100)
-    private  String password;*/
+    private  String password;
 
-  /*  @Enumerated
-    private Role role;*/
+    @Enumerated
+    private Role role;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    private Set <CustomerOrder> Orders = new HashSet<>();
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    private Set <ShoppingCart> ShoppingCarts = new HashSet<>();
+
+   /* @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_order")
+    private Set <InvoiceCustomer> invoiceCustomers = new HashSet<>();*/
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    private Set<Address> addresses = new HashSet<>();
+
+
 
 }

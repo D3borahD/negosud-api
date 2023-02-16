@@ -13,11 +13,10 @@ public class InvoiceSupplier {
     @Column(name = "id")
     private int idInvoiceSupplier;
 
-    //Enum
-    private String status;
+    @Column(name = "is_paid")
+    private boolean isPaid;
 
-    @Column(name = "id_order")
-    private int idOrder;
+
 
 
 }

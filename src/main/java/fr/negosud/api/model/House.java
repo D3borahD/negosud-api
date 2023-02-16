@@ -22,9 +22,11 @@ public class House {
     @Column(name = "name", nullable=false)
     private String nameHouse;
 
-   /*@ManyToMany(
-            mappedBy = "houses",fetch = FetchType.LAZY
-    )
-    private Set<Familly> famillies = new HashSet<>();*/
-    //private List<Familly> famillies = new ArrayList<>();
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "house_id")
+    private Set<Product> products = new HashSet<>();
+
 }
