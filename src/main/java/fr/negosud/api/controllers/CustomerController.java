@@ -1,5 +1,6 @@
 package fr.negosud.api.controllers;
 
+import fr.negosud.api.model.Role;
 import fr.negosud.api.service.CustomerService;
 import fr.negosud.api.model.Customer;
 
@@ -51,6 +52,14 @@ public class CustomerController {
             String mail = customer.getMailCustomer();
             if(mail != null) {
                 currentCustomer.setMailCustomer(mail);
+            }
+            String password = customer.getPassword();
+            if(password != null) {
+                currentCustomer.setPassword(password);
+            }
+            Role role = customer.getRole();
+            if (role != null) {
+                currentCustomer.setRole(role);
             }
             customerService.saveCustomer(currentCustomer);
             return currentCustomer;

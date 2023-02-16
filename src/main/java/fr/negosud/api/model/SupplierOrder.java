@@ -22,7 +22,8 @@ public class SupplierOrder {
     @Column(name = "delivery_date")
     private LocalDate deliveryDate;
 
-    private int invoice;
+    @Column(name = "invoice_supplier")
+    private int invoiceSupplier;
 
     @Enumerated
     private OrderStatus orderStatus;

@@ -1,7 +1,9 @@
 package fr.negosud.api.controllers;
 
 import fr.negosud.api.model.CustomerOrder;
+import fr.negosud.api.model.OrderStatus;
 import fr.negosud.api.service.CustomerOrderService;
+import org.apache.logging.log4j.util.Timer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
@@ -49,14 +51,14 @@ public class CustomerOrderController {
             if(deliveryDate  != null){
                 currentCustomerOrder.setDeliveryDate(deliveryDate);
             }
-           /* int invoice = customerOrder.getInvoice();
+           int invoice = customerOrder.getInvoiceCustomer();
             if(invoice  != 0){
-                currentCustomerOrder.setInvoice(invoice);
-            }*/
-           /* String status = order.getStatus();
-            if(status  != null){
-                currentOrder .setStatus(status);
-            }*/
+                currentCustomerOrder.setInvoiceCustomer(invoice);
+            }
+            OrderStatus orderStatus = customerOrder.getOrderStatus();
+            if(orderStatus  != null){
+                currentCustomerOrder .setOrderStatus(orderStatus);
+            }
             customerOrderService.saveCustomerOrder(currentCustomerOrder);
             return currentCustomerOrder;
         } else {

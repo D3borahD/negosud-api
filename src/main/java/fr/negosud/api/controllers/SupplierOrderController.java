@@ -1,5 +1,6 @@
 package fr.negosud.api.controllers;
 
+import fr.negosud.api.model.OrderStatus;
 import fr.negosud.api.model.SupplierOrder;
 import fr.negosud.api.service.SupplierOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,6 @@ public class SupplierOrderController {
         }
     }
 
-
     @PostMapping("/commandes_fournisseurs")
     public SupplierOrder createSupplierOrder(@RequestBody SupplierOrder supplierOrder) {
         return supplierOrderService.saveSupplierOrder(supplierOrder);
@@ -49,14 +49,15 @@ public class SupplierOrderController {
             if(deliveryDate  != null){
                 currentSupplierOrder.setDeliveryDate(deliveryDate);
             }
-            int invoice = supplierOrder.getInvoice();
-            if(invoice  != 0){
-                currentSupplierOrder.setInvoice(invoice);
+            int invoiceSupplier = supplierOrder.getInvoiceSupplier();
+            if(invoiceSupplier != 0){
+                currentSupplierOrder.setInvoiceSupplier(invoiceSupplier);
             }
-           /* String status = order.getStatus();
-            if(status  != null){
-                currentOrder .setStatus(status);
-            }*/
+            
+            OrderStatus orderStatus = supplierOrder.getOrderStatus();
+            if(orderStatus  != null){
+                currentSupplierOrder .setOrderStatus(orderStatus);
+            }
             supplierOrderService.saveSupplierOrder(currentSupplierOrder);
             return currentSupplierOrder;
         } else {

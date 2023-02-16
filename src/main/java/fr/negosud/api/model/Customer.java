@@ -50,20 +50,11 @@ public class Customer {
     @JoinColumn(name = "customer_id")
     private Set <ShoppingCart> ShoppingCarts = new HashSet<>();
 
-   /* @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_order")
-    private Set <InvoiceCustomer> invoiceCustomers = new HashSet<>();*/
-
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Set<Address> addresses = new HashSet<>();
-
-
 
 }

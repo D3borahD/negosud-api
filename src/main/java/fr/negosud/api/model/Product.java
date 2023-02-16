@@ -40,10 +40,10 @@ public class Product {
     @Column(name = "automatic_replenishment_threshold")
     private boolean automaticReplenishmentTreshold;
 
-    @Column(name = "house_id")
+/*    @Column(name = "house_id")
     private int houseId;
     @Column(name = "familly_id")
-    private int famillyId;
+    private int famillyId;*/
 
     @OneToMany(
             cascade = CascadeType.ALL,

@@ -29,5 +29,4 @@ public class Familly {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "familly_id")
     private Set<Product> products = new HashSet<>();
-
 }

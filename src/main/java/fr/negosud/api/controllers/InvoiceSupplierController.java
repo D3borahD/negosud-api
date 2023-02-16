@@ -40,14 +40,10 @@ public class InvoiceSupplierController {
         if(i.isPresent()){
             InvoiceSupplier currentInvoiceSupplier = i.get();
 
-           /* String statusInvoiceSupplier = invoiceSupplier.getStatus();
-            if(statusInvoiceSupplier != null){
-                currentInvoiceSupplier.setStatus(statusInvoiceSupplier);
-            }*/
-          /*  int idOrder = invoiceSupplier.getIdOrder();
-            if(idOrder != 0){
-                currentInvoiceSupplier.setIdOrder(idOrder);
-            }*/
+           Boolean isPaid = invoiceSupplier.isPaid();
+            if(isPaid != false){
+                currentInvoiceSupplier.setPaid(isPaid);
+            }
             invoiceSupplierService.saveInvoiceSupplier(currentInvoiceSupplier);
             return currentInvoiceSupplier;
         } else {

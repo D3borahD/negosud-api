@@ -1,5 +1,6 @@
 package fr.negosud.api.controllers;
 
+import fr.negosud.api.model.OrderStatus;
 import fr.negosud.api.model.RefillOrder;
 import fr.negosud.api.service.RefillOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,10 @@ public class RefillOrderController {
             if(price  != 0){
                 currentRefillOrder.setPrice(price);
             }
-          /*  String status = refillOrder.getStatus();
-            if(status  != null){
-                currentRefillOrder.setStatus(status);
-            }*/
+            OrderStatus orderStatus = refillOrder.getOrderStatus();
+            if(orderStatus  != null){
+                currentRefillOrder.setOrderStatus(orderStatus);
+            }
             int idProduct = refillOrder.getIdProduct();
             if(idProduct  != 0){
                 currentRefillOrder.setIdProduct(idProduct);

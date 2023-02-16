@@ -22,9 +22,6 @@ public class Supplier {
     @Column(name = "mail",  nullable=false, unique=true)
     private  String mailSupplier;
 
-
-
-
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
