@@ -2,6 +2,9 @@ package fr.negosud.api.model;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 // generate getteurs & setteurs
 import lombok.Data;
 
@@ -22,6 +25,14 @@ public class Customer {
     private  String lastName;
 
     @Column(name = "mail", nullable=false, unique=true)
+    @Email
     private  String mailCustomer;
+
+   /* @Column(nullable=false)
+    @Size(min = 2, max = 100)
+    private  String password;*/
+
+  /*  @Enumerated
+    private Role role;*/
 
 }

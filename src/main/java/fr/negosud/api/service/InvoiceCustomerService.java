@@ -20,7 +20,7 @@ public class InvoiceCustomerService {
         return invoiceCustomerRepository.findAll();
     }
 
-    public Optional<InvoiceCustomer> getInvoiceCustome(final Integer id) {
+    public Optional<InvoiceCustomer> getInvoiceCustomer(final Integer id) {
         return invoiceCustomerRepository.findById(id);
     }
 

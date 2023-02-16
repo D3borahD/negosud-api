@@ -40,10 +40,10 @@ public class ProductController {
         if(p.isPresent()){
             Product currentProduct = p.get();
 
-           /* String nameProduct = product.getNameProduct();
+            String nameProduct = product.getNameProduct();
             if(nameProduct != null){
                 currentProduct.setNameProduct(nameProduct);
-            }*/
+            }
             float unitePrice = product.getUnitePrice();
             if(unitePrice != 0.0f) {
                 currentProduct.setUnitePrice(unitePrice);

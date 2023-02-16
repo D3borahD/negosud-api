@@ -14,7 +14,6 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-
     @GetMapping("/clients")
     public Iterable<Customer> getCustomers() {
         return customerService.getCustomers();
@@ -64,6 +63,4 @@ public class CustomerController {
     public void deleteCustomer(@PathVariable("id") final Integer id) {
         customerService.deleteCustomer(id);
     }
-
-
 }

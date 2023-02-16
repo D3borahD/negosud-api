@@ -35,6 +35,7 @@ public class Familly {
             joinColumns = @JoinColumn(name = "familly_id", referencedColumnName = "id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "house_id", referencedColumnName = "id", nullable = false)
     )
+    @JsonIgnore
     private Set<House> houses = new HashSet<>();
     //private List<House> houses = new ArrayList<>();
 

@@ -20,4 +20,6 @@ public class RefillOrder {
 
     @Column(name = "id_product")
     private int idProduct;
+
+
 }

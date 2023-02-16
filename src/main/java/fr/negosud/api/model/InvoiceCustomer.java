@@ -13,7 +13,8 @@ public class InvoiceCustomer {
     @Column(name = "id")
     private int idInvoiceCustomer;
 
-    //Enum
+   /* @Enumerated
+    private Status status;*/
     private String status;
 
     @Column(name = "id_order")

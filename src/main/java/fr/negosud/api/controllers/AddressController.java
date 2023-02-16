@@ -12,7 +12,6 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-
     @GetMapping("/adresses")
     public Iterable<Address> getAddresses() {
         return addressService.getAddresses();
@@ -51,8 +50,8 @@ public class AddressController {
             if(streetName != null) {
                 currentAddress.setStreetName(streetName);
             }
-            int zip = address.getZip();
-            if(zip != 0){
+            String zip = address.getZip();
+            if(zip != null){
                 currentAddress.setZip(zip);
             }
             String city = address.getCity();

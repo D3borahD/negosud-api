@@ -27,7 +27,4 @@ public class House {
     )
     private Set<Familly> famillies = new HashSet<>();*/
     //private List<Familly> famillies = new ArrayList<>();
-
-
-
 }

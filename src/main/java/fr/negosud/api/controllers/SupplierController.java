@@ -42,7 +42,10 @@ public class SupplierController {
             if(nameSupplier != null){
                 currentSupplier.setNameSupplier(nameSupplier);
             }
-
+            String mailSupplier= supplier.getMailSupplier();
+            if(mailSupplier != null){
+                currentSupplier.setMailSupplier(mailSupplier);
+            }
             supplierService.saveSupplier(currentSupplier);
             return currentSupplier;
         } else {

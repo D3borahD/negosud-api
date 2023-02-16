@@ -22,7 +22,7 @@ public class Address {
     private String streetName;
 
     @Column(nullable=false)
-    private int zip;
+    private String zip;
     @Column(nullable=false)
     private String city;
 
