@@ -60,7 +60,6 @@ public class ProductController {
             if(quantity != 0){
                 currentProduct.setQuantity(quantity);
             }
-
             boolean needRefill = product.isNeedRefill();
             if(needRefill != false){
                 currentProduct.setNeedRefill(needRefill);

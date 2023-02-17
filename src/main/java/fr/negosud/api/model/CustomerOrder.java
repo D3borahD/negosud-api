@@ -25,7 +25,7 @@ public class CustomerOrder {
     @Column(name = "invoice_customer")
     private int invoiceCustomer;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
     @OneToMany(

@@ -48,10 +48,10 @@ public class RefillOrderController {
             if(orderStatus  != null){
                 currentRefillOrder.setOrderStatus(orderStatus);
             }
-            int idProduct = refillOrder.getIdProduct();
+           /* int idProduct = refillOrder.getIdProduct();
             if(idProduct  != 0){
                 currentRefillOrder.setIdProduct(idProduct);
-            }
+            }*/
             refillOrderService.saveRefillOrder(currentRefillOrder);
             return currentRefillOrder;
         } else {

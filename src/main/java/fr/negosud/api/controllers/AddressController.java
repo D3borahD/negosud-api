@@ -1,6 +1,7 @@
 package fr.negosud.api.controllers;
 
 import fr.negosud.api.model.Address;
+import fr.negosud.api.model.AdresseType;
 import fr.negosud.api.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class AddressController {
         if(a.isPresent()){
             Address currentAddress = a.get();
 
-            String type = address.getType();
+            AdresseType type = address.getType();
             if(type != null){
                 currentAddress.setType(type);
             }

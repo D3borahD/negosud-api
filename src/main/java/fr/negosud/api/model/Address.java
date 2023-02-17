@@ -13,8 +13,8 @@ public class Address {
     @Column(name = "id")
     private int idAddress;
 
-    @Column(nullable=false, unique=true)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private AdresseType type;
 
     private String number;
 
@@ -27,4 +27,5 @@ public class Address {
     private String city;
 
     private String additional;
+
 }

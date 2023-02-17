@@ -33,7 +33,7 @@ public class Customer {
     @Size(min = 2, max = 100)
     private  String password;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToMany(
@@ -56,5 +56,4 @@ public class Customer {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Set<Address> addresses = new HashSet<>();
-
 }

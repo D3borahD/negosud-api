@@ -15,10 +15,9 @@ public class RefillOrder {
 
     private float price;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
     private OrderStatus orderStatus;
 
-    @Column(name = "id_product")
-    private int idProduct;
 
 }
