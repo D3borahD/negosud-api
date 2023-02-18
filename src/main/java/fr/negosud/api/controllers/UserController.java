@@ -49,9 +49,9 @@ public class UserController {
             if(lastName != null) {
                 currentUser.setLastName(lastName);
             }
-            String mail = user.getMail();
-            if(mail != null) {
-                currentUser.setMail(mail);
+            String email = user.getEmail();
+            if(email != null) {
+                currentUser.setEmail(email);
             }
             String password = user.getPassword();
             if(password != null) {
