@@ -2,27 +2,28 @@ package fr.negosud.api.controllers;
 
 import fr.negosud.api.model.CustomerOrder;
 import fr.negosud.api.model.OrderStatus;
+import fr.negosud.api.model.SupplierOrder;
 import fr.negosud.api.service.CustomerOrderService;
-import org.apache.logging.log4j.util.Timer;
+import fr.negosud.api.service.SupplierOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
-@Repository
-public class CustomerOrderController {
+@RestController
+public class CutomerOrderController {
+
     @Autowired
     private CustomerOrderService customerOrderService;
 
-    @GetMapping("/commandes")
+    @GetMapping("/customer-orders")
     public Iterable<CustomerOrder> getCustomerOrders() {
         return customerOrderService.getCustomerOrders();
     }
 
-    @GetMapping("/commandes/{id}")
-    public CustomerOrder getCustomerOrder(@PathVariable("id") final Integer id) {
+    @GetMapping("/customer-orders/{id}")
+    public CustomerOrder getSupplierOrder(@PathVariable("id") final Integer id) {
         Optional<CustomerOrder> customerOrder = customerOrderService.getCustomerOrder(id);
         if(customerOrder.isPresent()){
             return customerOrder.get();
@@ -31,13 +32,12 @@ public class CustomerOrderController {
         }
     }
 
-
-    @PostMapping("/commandes")
+    @PostMapping("/customer-orders")
     public CustomerOrder createCustomerOrder(@RequestBody CustomerOrder customerOrder) {
         return customerOrderService.saveCustomerOrder(customerOrder);
     }
 
-    @PutMapping("/commandes/{id}")
+    @PutMapping("/customer-orders/{id}")
     public CustomerOrder updateCustomerOrder(@PathVariable("id") final Integer id, @RequestBody CustomerOrder customerOrder){
         Optional<CustomerOrder> o = customerOrderService.getCustomerOrder(id);
         if(o.isPresent()){
@@ -51,10 +51,11 @@ public class CustomerOrderController {
             if(deliveryDate  != null){
                 currentCustomerOrder.setDeliveryDate(deliveryDate);
             }
-           int invoice = customerOrder.getInvoiceCustomer();
-            if(invoice  != 0){
-                currentCustomerOrder.setInvoiceCustomer(invoice);
+            int invoiceSupplier = customerOrder.getInvoiceCustomer();
+            if(invoiceSupplier != 0){
+                currentCustomerOrder.setInvoiceCustomer(invoiceSupplier);
             }
+
             OrderStatus orderStatus = customerOrder.getOrderStatus();
             if(orderStatus  != null){
                 currentCustomerOrder .setOrderStatus(orderStatus);
@@ -66,8 +67,8 @@ public class CustomerOrderController {
         }
     }
 
-    @DeleteMapping("/commandes/{id}")
-    public void deleteOrder(@PathVariable("id") final Integer id) {
+    @DeleteMapping("/customer-orders/{id}")
+    public void deleteCustomerOrder(@PathVariable("id") final Integer id) {
         customerOrderService.deleteCustomerOrder(id);
     }
 }

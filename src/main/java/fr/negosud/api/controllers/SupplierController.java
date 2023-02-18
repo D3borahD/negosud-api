@@ -12,12 +12,12 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
 
-    @GetMapping("/fournisseurs")
+    @GetMapping("/suppliers")
     public Iterable<Supplier> getSuppliers() {
         return supplierService.getSuppliers();
     }
 
-    @GetMapping("/fournisseurs/{id}")
+    @GetMapping("/suppliers/{id}")
     public Supplier getSupplier(@PathVariable("id") final Integer id) {
         Optional<Supplier> supplier = supplierService.getSupplier(id);
         if(supplier.isPresent()){
@@ -27,12 +27,12 @@ public class SupplierController {
         }
     }
 
-    @PostMapping("/fournisseurs")
+    @PostMapping("/suppliers")
     public Supplier createSupplier(@RequestBody Supplier supplier) {
         return supplierService.saveSupplier(supplier);
     }
 
-    @PutMapping("fournisseurs/{id}")
+    @PutMapping("suppliers/{id}")
     public Supplier updateSupplier(@PathVariable("id") final Integer id, @RequestBody Supplier supplier){
         Optional<Supplier> s = supplierService.getSupplier(id);
         if(s.isPresent()){
@@ -53,7 +53,7 @@ public class SupplierController {
         }
     }
 
-    @DeleteMapping("fournisseurs/{id}")
+    @DeleteMapping("suppliers/{id}")
     public void deleteSupplier(@PathVariable("id") final Integer id) {
         supplierService.deleteSupplier(id);
     }

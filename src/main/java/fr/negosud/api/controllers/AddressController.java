@@ -13,12 +13,12 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @GetMapping("/adresses")
+    @GetMapping("/addresses")
     public Iterable<Address> getAddresses() {
         return addressService.getAddresses();
     }
 
-    @GetMapping("/adresses/{id}")
+    @GetMapping("/addresses/{id}")
     public Address getAddress(@PathVariable("id") final Integer id) {
         Optional<Address> address = addressService.getAddress(id);
         if(address.isPresent()){
@@ -28,12 +28,12 @@ public class AddressController {
         }
     }
 
-    @PostMapping("/adresses")
+    @PostMapping("/addresses")
     public Address createAddress(@RequestBody Address address) {
         return addressService.saveAddress(address);
     }
 
-    @PutMapping("adresses/{id}")
+    @PutMapping("addresses/{id}")
     public Address updateAddress(@PathVariable("id") final Integer id, @RequestBody Address address){
         Optional<Address> a = addressService.getAddress(id);
         if(a.isPresent()){
@@ -70,7 +70,7 @@ public class AddressController {
         }
     }
 
-    @DeleteMapping("adresses/{id}")
+    @DeleteMapping("addresses/{id}")
     public void deleteAddress(@PathVariable("id") final Integer id) {
         addressService.deleteAddress(id);
     }

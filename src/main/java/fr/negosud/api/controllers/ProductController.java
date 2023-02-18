@@ -14,12 +14,12 @@ public class ProductController {
     private ProductService productService;
 
 
-    @GetMapping("/produits")
+    @GetMapping("/products")
     public Iterable<Product> getProducts() {
         return productService.getProducts();
     }
 
-    @GetMapping("/produits/{id}")
+    @GetMapping("/products/{id}")
     public Product getProduct(@PathVariable("id") final Integer id) {
         Optional<Product> product = productService.getProduct(id);
         if(product.isPresent()){
@@ -29,12 +29,12 @@ public class ProductController {
         }
     }
 
-    @PostMapping("/produits")
+    @PostMapping("/products")
     public Product createProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
-    @PutMapping("produits/{id}")
+    @PutMapping("products/{id}")
     public Product updateProduct(@PathVariable("id") final Integer id, @RequestBody Product product){
         Optional<Product> p = productService.getProduct(id);
         if(p.isPresent()){
@@ -83,7 +83,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("produits/{id}")
+    @DeleteMapping("products/{id}")
     public void deleteProduct(@PathVariable("id") final Integer id) {
         productService.deleteProduct(id);
     }

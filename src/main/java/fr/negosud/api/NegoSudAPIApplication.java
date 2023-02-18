@@ -1,14 +1,8 @@
 package fr.negosud.api;
 
 
-import fr.negosud.api.model.Customer;
-import fr.negosud.api.service.CustomerService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication

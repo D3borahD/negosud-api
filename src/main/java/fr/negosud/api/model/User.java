@@ -11,13 +11,13 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int idCustomer;
+    private int idUser;
 
     @Column(name = "first_name", nullable=false)
     private String firstName;
@@ -27,7 +27,7 @@ public class Customer {
 
     @Column(name = "mail", nullable=false, unique=true)
     @Email
-    private  String mailCustomer;
+    private  String mail;
 
     @Column(nullable=false)
     @Size(min = 2, max = 100)
@@ -40,20 +40,20 @@ public class Customer {
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "user_id")
     private Set <CustomerOrder> Orders = new HashSet<>();
 
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "user_id")
     private Set <ShoppingCart> ShoppingCarts = new HashSet<>();
 
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "user_id")
     private Set<Address> addresses = new HashSet<>();
 }

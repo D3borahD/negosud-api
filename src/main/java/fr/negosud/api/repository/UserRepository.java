@@ -1,10 +1,10 @@
 package fr.negosud.api.repository;
 
-import fr.negosud.api.model.Customer;
+import fr.negosud.api.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends CrudRepository<Customer, Integer> {
+public interface UserRepository extends CrudRepository<User, Integer> {
 }

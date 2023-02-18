@@ -14,12 +14,12 @@ public class FamillyController {
     @Autowired
     private FamillyService famillyService;
 
-    @GetMapping("/familles")
+    @GetMapping("/families")
     public Iterable<Familly> getFamilly() {
         return famillyService.getFamillys();
     }
 
-    @GetMapping("/familles/{id}")
+    @GetMapping("/families/{id}")
     public Familly getFamilly(@PathVariable("id") final Integer id) {
         Optional<Familly> familly = famillyService.getFamilly(id);
         if(familly.isPresent()){
@@ -29,12 +29,12 @@ public class FamillyController {
         }
     }
 
-    @PostMapping("/familles")
+    @PostMapping("/families")
     public Familly createFamilly(@RequestBody Familly familly) {
         return famillyService.saveFamilly(familly);
     }
 
-    @PutMapping("familles/{id}")
+    @PutMapping("families/{id}")
     public Familly updateFamilly(@PathVariable("id") final Integer id, @RequestBody Familly familly){
         Optional<Familly> f = famillyService.getFamilly(id);
         if(f.isPresent()){
@@ -52,7 +52,7 @@ public class FamillyController {
         }
     }
 
-    @DeleteMapping("familles/{id}")
+    @DeleteMapping("families/{id}")
     public void deleteFamilly(@PathVariable("id") final Integer id) {
         famillyService.deleteFamilly(id);
     }

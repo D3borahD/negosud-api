@@ -12,12 +12,12 @@ public class HouseController {
     @Autowired
     private HouseService houseService;
 
-    @GetMapping("/maisons")
+    @GetMapping("/houses")
     public Iterable<House> getHouse() {
         return houseService.getHouse();
     }
 
-    @GetMapping("/maisons/{id}")
+    @GetMapping("/houses/{id}")
     public House getHouse(@PathVariable("id") final Integer id) {
         Optional<House> house = houseService.getHouse(id);
         if(house.isPresent()){
@@ -27,12 +27,12 @@ public class HouseController {
         }
     }
 
-    @PostMapping("/maisons")
+    @PostMapping("/houses")
     public House createHouse(@RequestBody House house) {
         return houseService.saveHouse(house);
     }
 
-    @PutMapping("maisons/{id}")
+    @PutMapping("houses/{id}")
     public House updateHouse(@PathVariable("id") final Integer id, @RequestBody House house){
         Optional<House> h = houseService.getHouse(id);
         if(h.isPresent()){

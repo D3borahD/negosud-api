@@ -13,12 +13,12 @@ public class InvoiceCustomerController {
     @Autowired
     private InvoiceCustomerService invoiceCustomerService;
 
-    @GetMapping("/factureClients")
+    @GetMapping("/invoice-customers")
     public Iterable<InvoiceCustomer> getInvoiceCustomers() {
         return invoiceCustomerService.getInvoiceCustomers();
     }
 
-    @GetMapping("/factureClients/{id}")
+    @GetMapping("/invoice-customers/{id}")
     public InvoiceCustomer getInvoiceCustomer(@PathVariable("id") final Integer id) {
         Optional<InvoiceCustomer> invoiceCustomer = invoiceCustomerService.getInvoiceCustomer(id);
         if(invoiceCustomer.isPresent()){
@@ -28,12 +28,12 @@ public class InvoiceCustomerController {
         }
     }
 
-    @PostMapping("/factureClients")
+    @PostMapping("/invoice-customers")
     public InvoiceCustomer createHouse(@RequestBody InvoiceCustomer invoiceCustomer) {
         return invoiceCustomerService.saveInvoiceCustomer(invoiceCustomer);
     }
 
-    @PutMapping("/factureClients/{id}")
+    @PutMapping("/invoice-customers/{id}")
     public InvoiceCustomer updateInvoiceCustomer(@PathVariable("id") final Integer id, @RequestBody InvoiceCustomer invoiceCustomer){
         Optional<InvoiceCustomer> i = invoiceCustomerService.getInvoiceCustomer(id);
         if(i.isPresent()){
@@ -50,7 +50,7 @@ public class InvoiceCustomerController {
         }
     }
 
-    @DeleteMapping("/factureClients/{id}")
+    @DeleteMapping("/invoice-customers/{id}")
     public void deleteInvoiceCustomer(@PathVariable("id") final Integer id) {
         invoiceCustomerService.deleteInvoiceCustomer(id);
     }
