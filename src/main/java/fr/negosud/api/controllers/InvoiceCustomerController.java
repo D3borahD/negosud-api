@@ -2,12 +2,15 @@ package fr.negosud.api.controllers;
 
 import fr.negosud.api.model.InvoiceCustomer;
 import fr.negosud.api.service.InvoiceCustomerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class InvoiceCustomerController {
 
     @Autowired

@@ -3,12 +3,15 @@ package fr.negosud.api.controllers;
 import fr.negosud.api.model.OrderStatus;
 import fr.negosud.api.model.RefillOrder;
 import fr.negosud.api.service.RefillOrderService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class RefillOrderController {
 
     @Autowired

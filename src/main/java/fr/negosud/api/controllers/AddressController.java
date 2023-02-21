@@ -3,12 +3,15 @@ package fr.negosud.api.controllers;
 import fr.negosud.api.model.Address;
 import fr.negosud.api.model.AdresseType;
 import fr.negosud.api.service.AddressService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class AddressController {
     @Autowired
     private AddressService addressService;

@@ -4,16 +4,19 @@ package fr.negosud.api.controllers;
 import fr.negosud.api.model.Familly;
 import fr.negosud.api.service.FamillyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
 public class FamillyController {
 
     @Autowired
     private FamillyService famillyService;
 
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/families")
     public Iterable<Familly> getFamilly() {
         return famillyService.getFamillys();
