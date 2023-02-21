@@ -69,6 +69,8 @@ public class User implements UserDetails {
     @JoinColumn(name = "user_id")
     private Set<Address> addresses = new HashSet<>();
 
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

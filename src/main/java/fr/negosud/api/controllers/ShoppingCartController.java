@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
-@RequiredArgsConstructor
 public class ShoppingCartController {
     @Autowired
     private ShoppingCartService shoppingCartService;

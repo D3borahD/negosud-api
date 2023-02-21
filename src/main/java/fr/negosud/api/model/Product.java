@@ -1,6 +1,5 @@
 package fr.negosud.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -39,6 +38,12 @@ public class Product {
 
     @Column(name = "automatic_replenishment_threshold")
     private boolean automaticReplenishmentTreshold;
+
+    @ManyToOne
+    private Familly familly;
+
+    @ManyToOne
+    private House house;
 
 /*    @Column(name = "house_id")
     private int houseId;

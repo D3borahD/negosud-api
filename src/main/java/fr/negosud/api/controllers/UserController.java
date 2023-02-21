@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class UserController {
 
     @Autowired
@@ -38,7 +38,7 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @PutMapping("users/{id}")
+    @PutMapping("/users/{id}")
     public User updateUser(@PathVariable("id") final Integer id, @RequestBody User user){
         Optional<User> u = userService.getUser(id);
         if(u.isPresent()){
@@ -71,7 +71,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("users/{id}")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable("id") final Integer id) {
         userService.deleteUser(id);
     }

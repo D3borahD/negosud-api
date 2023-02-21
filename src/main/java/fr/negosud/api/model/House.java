@@ -1,6 +1,7 @@
 package fr.negosud.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,11 +23,8 @@ public class House {
     @Column(name = "name", nullable=false)
     private String nameHouse;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "house_id")
-    private Set<Product> products = new HashSet<>();
+    @OneToMany(mappedBy = "house")
+    @JsonIgnore
+    private Set<Product> productList;
 
 }
