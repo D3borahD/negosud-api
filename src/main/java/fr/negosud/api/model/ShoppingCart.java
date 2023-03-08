@@ -16,6 +16,8 @@ public class ShoppingCart {
     @Column(name = "id")
     private int idShoppingCart;
 
+
+
     @ManyToMany(
             fetch = FetchType.LAZY,
             cascade = {
@@ -29,4 +31,13 @@ public class ShoppingCart {
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
     )
     private Set<Product> products = new HashSet<>();
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
 }
+
