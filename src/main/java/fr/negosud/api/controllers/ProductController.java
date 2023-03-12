@@ -18,10 +18,10 @@ public class ProductController {
     private ProductService productService;
 
 
-    /*@GetMapping("/products")
+    @GetMapping("/products/test")
     public Iterable<Product> getProducts() {
         return productService.getProducts();
-    }*/
+    }
     @GetMapping(value = {"/products", "/products?sort=desc"})
     public Iterable<Product> getProducts(@RequestParam Optional<String> sort) {
         if(sort.isPresent()) {

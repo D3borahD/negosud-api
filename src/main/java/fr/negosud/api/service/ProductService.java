@@ -15,8 +15,11 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Iterable<Product> getProducts() {
+    /*public Iterable<Product> getProducts() {
         return productRepository.findAll();
+    }*/
+    public Iterable<Product> getProducts() {
+        return productRepository.findByOrderByFamillyNameFamillyAscHouseNameHouseAscYearAsc();
     }
 
     public Iterable<Product> getProductsByYear(String year) {

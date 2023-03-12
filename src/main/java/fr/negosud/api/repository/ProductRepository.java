@@ -11,10 +11,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Iterable<Product> findByFamillyNameFamilly(String famillyName);
     Iterable<Product> findByHouseNameHouse(String houseName);
     Iterable<Product> getProductsByYear(String year);
-
     Iterable<Product> findByOrderByUnitePriceAsc();
     Iterable<Product> findByOrderByUnitePriceDesc();
+    Iterable<Product> findByOrderByFamillyNameFamillyAscHouseNameHouseAscYearAsc();
 
-    /*List<Person> findByLastnameOrderByFirstnameAsc(String lastname);
-    List<Person> findByLastnameOrderByFirstnameDesc(String lastname);*/
 }
