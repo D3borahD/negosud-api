@@ -8,9 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    public Iterable<Product> findByFamillyNameFamilly(String famillyName);
-    public Iterable<Product> findByHouseNameHouse(String houseName);
-    public Iterable<Product> getProductsByYear(String year);
+    Iterable<Product> findByFamillyNameFamilly(String famillyName);
+    Iterable<Product> findByHouseNameHouse(String houseName);
+    Iterable<Product> getProductsByYear(String year);
+
+    Iterable<Product> findByOrderByUnitePriceAsc();
+    Iterable<Product> findByOrderByUnitePriceDesc();
 
     /*List<Person> findByLastnameOrderByFirstnameAsc(String lastname);
     List<Person> findByLastnameOrderByFirstnameDesc(String lastname);*/

@@ -18,9 +18,17 @@ public class ProductController {
     private ProductService productService;
 
 
-    @GetMapping("/products")
+    /*@GetMapping("/products")
     public Iterable<Product> getProducts() {
         return productService.getProducts();
+    }*/
+    @GetMapping(value = {"/products", "/products?sort=desc"})
+    public Iterable<Product> getProducts(@RequestParam Optional<String> sort) {
+        if(sort.isPresent()) {
+            return productService.getProductsByPriceDesc();
+        } else {
+            return productService.getProductsByPriceAsc();
+        }
     }
 
     @GetMapping("/products/{id}")

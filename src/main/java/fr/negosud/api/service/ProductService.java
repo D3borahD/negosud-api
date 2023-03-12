@@ -4,6 +4,7 @@ import fr.negosud.api.model.Product;
 import fr.negosud.api.repository.ProductRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -27,6 +28,12 @@ public class ProductService {
     }
     public Iterable<Product> getProductsByHouse(String houseName) {
         return productRepository.findByHouseNameHouse(houseName);
+    }
+    public Iterable<Product> getProductsByPriceAsc() {
+        return productRepository.findByOrderByUnitePriceAsc();
+    }
+    public Iterable<Product> getProductsByPriceDesc() {
+        return productRepository.findByOrderByUnitePriceDesc();
     }
 
     public Optional<Product> getProduct(final Integer id) {
