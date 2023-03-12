@@ -34,12 +34,15 @@ public class SecurityConfiguration implements WebMvcConfigurer {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-
+                //.requestMatchers("/api/v1/**").permitAll()
+                //.requestMatchers("/api/v1/products/**").permitAll()
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/shopping-carts/**").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/v1/products/**").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/v1/houses/**").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/v1/families/**").permitAll()
-                .requestMatchers("api/v1/shopping-cart/**","api/v1/addresses/**", "api/v1/customer-orders").authenticated()
+                // ajouter shopping-cart ici
+                .requestMatchers("api/v1/addresses/**", "api/v1/customer-orders").authenticated()
                 .requestMatchers(HttpMethod.GET,"/api/v1/users/**" ).authenticated()
                 .requestMatchers(HttpMethod.PUT,"/api/v1/users/**" ).authenticated()
                 .requestMatchers(HttpMethod.DELETE,"/api/v1/users/**").authenticated()

@@ -1,10 +1,12 @@
 package fr.negosud.api.controllers;
 
+import fr.negosud.api.model.Familly;
+import fr.negosud.api.model.House;
 import fr.negosud.api.model.Product;
 import fr.negosud.api.service.ProductService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Optional;
 
@@ -31,6 +33,19 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/products/familly/{nameFamilly}")
+    public Iterable<Product> getProductsByFamily (@PathVariable String nameFamilly) {
+        return  productService.getProductsByFamilly(nameFamilly);
+    }
+    @GetMapping("/products/houses/{nameHouse}")
+    public Iterable<Product> getProductsByHouse(@PathVariable String nameHouse) {
+        return  productService.getProductsByHouse(nameHouse);
+    }
+    @GetMapping("/products/year/{year}")
+    public Iterable<Product> getProductsByYear (@PathVariable String year) {
+        return  productService.getProductsByYear(year);
+    }
+
     @PostMapping("/products")
     public Product createProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
@@ -41,7 +56,10 @@ public class ProductController {
         Optional<Product> p = productService.getProduct(id);
         if(p.isPresent()){
             Product currentProduct = p.get();
-
+            String imageUrl = product.getImageUrl();
+            if(imageUrl != null){
+                currentProduct.setImageUrl(imageUrl);
+            }
             String nameProduct = product.getNameProduct();
             if(nameProduct != null){
                 currentProduct.setNameProduct(nameProduct);
@@ -77,6 +95,14 @@ public class ProductController {
             boolean automaticReplenishmentTreshold = product.isAutomaticReplenishmentTreshold();
             if (automaticReplenishmentTreshold != false){
                 currentProduct.setAutomaticReplenishmentTreshold(automaticReplenishmentTreshold);
+            }
+            Familly familly = product.getFamilly();
+            if(familly != null) {
+                currentProduct.setFamilly(familly);
+            }
+            House house = product.getHouse();
+            if(house != null) {
+                currentProduct.setHouse(house);
             }
             productService.saveProduct(currentProduct);
             return currentProduct;

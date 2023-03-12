@@ -55,6 +55,7 @@ public class User implements UserDetails {
     @JoinColumn(name = "user_id")
     private Set <CustomerOrder> Orders = new HashSet<>();
 
+    // one to one
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
@@ -68,8 +69,6 @@ public class User implements UserDetails {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Set<Address> addresses = new HashSet<>();
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

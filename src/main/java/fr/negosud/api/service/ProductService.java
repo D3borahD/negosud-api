@@ -18,6 +18,17 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Iterable<Product> getProductsByYear(String year) {
+        return productRepository.getProductsByYear(year);
+    }
+
+    public Iterable<Product> getProductsByFamilly(String famillyName) {
+        return productRepository.findByFamillyNameFamilly(famillyName);
+    }
+    public Iterable<Product> getProductsByHouse(String houseName) {
+        return productRepository.findByHouseNameHouse(houseName);
+    }
+
     public Optional<Product> getProduct(final Integer id) {
         return productRepository.findById(id);
     }
