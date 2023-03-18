@@ -32,4 +32,7 @@ public class UserService {
         return savedUser;
     }
 
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }

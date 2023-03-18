@@ -23,6 +23,17 @@ public class UserController {
         return userService.getUsers();
     }
 
+    @GetMapping("/user/{email}")
+    public User getCustomer(@PathVariable("email") final String email) {
+        Optional<User> customer = userService.getUserByEmail(email);
+        if(customer.isPresent()){
+            return customer.get();
+        } else {
+            return null;
+        }
+    }
+
+
     @GetMapping("/users/{id}")
     public User getCustomer(@PathVariable("id") final Integer id) {
         Optional<User> customer = userService.getUser(id);
