@@ -22,6 +22,7 @@ public class ProductController {
     public Iterable<Product> getProducts() {
         return productService.getProducts();
     }
+
     @GetMapping(value = {"/products", "/products?sort=desc"})
     public Iterable<Product> getProducts(@RequestParam Optional<String> sort) {
         if(sort.isPresent()) {

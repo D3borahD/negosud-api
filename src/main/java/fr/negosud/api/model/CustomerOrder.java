@@ -27,13 +27,13 @@ public class CustomerOrder {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
-
+    
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_order_id")
-    private Set<InvoiceCustomer> invoiceCustomers = new HashSet<>();
+    @JoinColumn(name = "product_id")
+    private Set<Product> products = new HashSet<>();
 
 
 }
