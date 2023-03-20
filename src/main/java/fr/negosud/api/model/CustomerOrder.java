@@ -27,7 +27,7 @@ public class CustomerOrder {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
-    
+
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
