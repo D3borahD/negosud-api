@@ -55,5 +55,8 @@ public class Product {
     @JoinColumn(name = "product_id")
     private Set<RefillOrder> refillOrders = new HashSet<>();
 
+    @ManyToOne
+    private Supplier supplier;
+
 
 }

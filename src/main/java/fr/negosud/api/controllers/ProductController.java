@@ -3,6 +3,7 @@ package fr.negosud.api.controllers;
 import fr.negosud.api.model.Familly;
 import fr.negosud.api.model.House;
 import fr.negosud.api.model.Product;
+import fr.negosud.api.model.Supplier;
 import fr.negosud.api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -109,6 +110,12 @@ public class ProductController {
             if(familly != null) {
                 currentProduct.setFamilly(familly);
             }
+
+            Supplier supplier = product.getSupplier();
+            if(supplier != null) {
+                currentProduct.setSupplier(supplier);
+            }
+
             House house = product.getHouse();
             if(house != null) {
                 currentProduct.setHouse(house);

@@ -41,7 +41,7 @@ public class ProductOrderController {
         Optional<ProductOrder> o = productOrderService.getProductOrder(id);
         if(o.isPresent()){
             ProductOrder currentProductOrder = o.get();
-            
+
             Product product = productOrder.getProduct();
             if(product  != null){
                 currentProductOrder.setProduct(product);
@@ -57,6 +57,5 @@ public class ProductOrderController {
     public void deleteCustomerOrder(@PathVariable("id") final Integer id) {
         productOrderService.deleteProductOrder(id);
     }
-
 
 }
