@@ -15,7 +15,12 @@ public class ProductOrder {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "quantity")
+    private int quantity;
+
     @ManyToOne
     @JoinColumn(name = "product")
     private Product product;
+
+
 }

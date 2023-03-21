@@ -18,6 +18,10 @@ public class Address {
 
     private String number;
 
+    private String customerFirstname;
+    private String customerLastname;
+
+
     @Column(name = "street_name", nullable=false)
     private String streetName;
 

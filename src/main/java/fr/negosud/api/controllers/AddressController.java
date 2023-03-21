@@ -50,6 +50,15 @@ public class AddressController {
             if(number != null) {
                 currentAddress.setNumber(number);
             }
+
+            String customerFirstname = address.getCustomerFirstname();
+            if(customerFirstname != null) {
+                currentAddress.setNumber(customerFirstname);
+            }
+            String customerLastname = address.getCustomerLastname();
+            if(customerLastname != null) {
+                currentAddress.setNumber(customerLastname);
+            }
             String streetName = address.getStreetName();
             if(streetName != null) {
                 currentAddress.setStreetName(streetName);
