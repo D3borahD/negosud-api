@@ -54,4 +54,6 @@ public class Product {
             fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
     private Set<RefillOrder> refillOrders = new HashSet<>();
+
+
 }

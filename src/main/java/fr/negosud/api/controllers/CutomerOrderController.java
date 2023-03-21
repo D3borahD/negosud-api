@@ -61,7 +61,7 @@ public class CutomerOrderController {
 
             OrderStatus orderStatus = customerOrder.getOrderStatus();
             if(orderStatus  != null){
-                currentCustomerOrder .setOrderStatus(orderStatus);
+                currentCustomerOrder.setOrderStatus(orderStatus);
             }
             customerOrderService.saveCustomerOrder(currentCustomerOrder);
             return currentCustomerOrder;
