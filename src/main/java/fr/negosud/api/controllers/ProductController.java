@@ -24,14 +24,26 @@ public class ProductController {
         return productService.getProducts();
     }
 
-    @GetMapping(value = {"/products", "/products?sort=desc"})
-    public Iterable<Product> getProducts(@RequestParam Optional<String> sort) {
-        if(sort.isPresent()) {
+
+    @GetMapping("/products")
+    public Iterable<Product> getProducts(@RequestParam(name = "sort", required = false) String sort) {
+        if (sort != null && sort.equals("desc")) {
             return productService.getProductsByPriceDesc();
-        } else {
+        } else if (sort != null && sort.equals("asc")) {
             return productService.getProductsByPriceAsc();
+        } else {
+            return productService.getProducts();
         }
     }
+
+ /*   @GetMapping(value = {"/products", "/products?sort=desc"})
+    public Iterable<Product> getProducts(@RequestParam Optional<String> sort) {
+        if(sort.equals("desc")) {
+            return productService.getProductsByPriceDesc();
+        } else {
+            return productService.getProducts();
+        }
+    }*/
 
     @GetMapping("/products/{id}")
     public Product getProduct(@PathVariable("id") final Integer id) {
