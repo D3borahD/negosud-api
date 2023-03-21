@@ -29,5 +29,12 @@ public class SupplierOrder {
     @Column(name = "order_status")
     private OrderStatus orderStatus;
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Set<Product> products = new HashSet<>();
+
 
 }
