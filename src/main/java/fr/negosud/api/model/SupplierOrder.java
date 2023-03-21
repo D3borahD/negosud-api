@@ -29,10 +29,5 @@ public class SupplierOrder {
     @Column(name = "order_status")
     private OrderStatus orderStatus;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "supplier_order_id")
-    private Set<InvoiceSupplier> invoiceSuppliers = new HashSet<>();
+
 }
