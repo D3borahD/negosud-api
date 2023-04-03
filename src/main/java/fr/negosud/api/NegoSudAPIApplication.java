@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NegoSudAPIApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(NegoSudAPIApplication.class, args);
     }
 

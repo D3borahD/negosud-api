@@ -5,16 +5,15 @@
 
 # Installation :
 
-- ```git clone {repo_url} && cd NegoSud-Shop```
+- ```git clone {repo_url} && cd negosud-api```
 - ```./mvnw clean install && ./mvnw spring-boot:run```
-- ```cd src/main/ui && yarn && yarn dev```
 
 # Structure :
 
 - ```src/main/java``` : code Java
 - ```src/main/java/{package}/controllers``` : controllers & routes
 - ```src/main/resources``` : ressources Java / Front compilé
-- ```src/main/ui``` : code Front (SPA VueJS)
+
 
 # Fonctionnement : 
 
