@@ -19,10 +19,10 @@ public class ProductController {
     private ProductService productService;
 
 
-    @GetMapping("/products/test")
+  /*  @GetMapping("/products/test")
     public Iterable<Product> getProducts() {
         return productService.getProducts();
-    }
+    }*/
 
 
     @GetMapping("/products")

@@ -32,8 +32,14 @@ public class CustomerOrder {
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id")
-    private Set<Product> products = new HashSet<>();
+    @JoinColumn(name = "customer_order_id")
+    private Set<InvoiceCustomer> invoices = new HashSet<>();
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Set<ProductOrder> products = new HashSet<>();
 
 }

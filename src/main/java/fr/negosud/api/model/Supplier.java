@@ -29,11 +29,4 @@ public class Supplier {
     @JoinColumn(name = "supplier_id")
     private Set<Product> products = new HashSet<>();
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "supplier_id")
-    private Set <SupplierOrder> SupplierOrders = new HashSet<>();
-
 }

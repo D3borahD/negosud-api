@@ -3,6 +3,8 @@ package fr.negosud.api.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -22,5 +24,11 @@ public class ProductOrder {
     @JoinColumn(name = "product")
     private Product product;
 
+   @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Set<Product> products = new HashSet<>();
 
 }

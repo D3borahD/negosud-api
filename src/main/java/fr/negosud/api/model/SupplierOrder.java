@@ -36,5 +36,10 @@ public class SupplierOrder {
     @JoinColumn(name = "product_id")
     private Set<Product> products = new HashSet<>();
 
-
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "invoice_id")
+    private Set<InvoiceSupplier> invoices = new HashSet<>();
 }
